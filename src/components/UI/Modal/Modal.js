@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import classes from './Modal.css';
 import Aux from '../../../hoc/Aux/Aux';
 import Backdrop from '../Backdrop/Backdrop';
+import burgerLogo from '../../../assets/images/burger-logo.png';
 
 class Modal extends Component {
 
@@ -22,9 +23,18 @@ class Modal extends Component {
                     className={classes.Modal}
                     style={{
                         transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
-                        opacity: this.props.show ? '1' : '0'
+                        opacity: this.props.show ? '1' : '0',
+                        display: 'flex',
+                        justifyContent: 'flex-end'
                     }}>
+                    <div style={{display:'flex',justifyContent: 'flex-end', alignItems: "center"}}>
+                        <img src={burgerLogo} alt="MyBurger" style={{width:300}} />
+                    </div>
+
+                    <div>
                     {this.props.children}
+                    </div>
+
                 </div>
             </Aux>
         )
